@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+export LANG="en_US.UTF-8"
+
 # -------------------------- Self handle the zplug (start) ---------------------
 # Check if zplug is installed
 if [[ ! -d ~/.zplug ]]; then
@@ -12,46 +14,48 @@ source ~/.zplug/init.zsh
 
 
 # ------------------------------- plugins (start) ------------------------------
-zplug "zsh-users/zsh-syntax-highlighting"
-zplug "zsh-users/zsh-completions"
-zplug "zsh-users/zsh-autosuggestions"
+zplug "mafredri/zsh-async", from:"github", use:"async.zsh"
+zplug "zsh-users/zsh-syntax-highlighting"       # syntax highlight
+zplug "zsh-users/zsh-completions"               # completions
+zplug "zsh-users/zsh-autosuggestions"           # auto suggestions, shows the last commands
+zplug "bobthecow/git-flow-completion"           # git working flow
+zplug "b4b4r07/enhancd"                         # "cd" command enhance
+zplug "supercrabtree/k"; alias k="k -h"         # Directory listings for zsh with git features
+zplug "chrissicool/zsh-256color"
+zplug "Tarrasch/zsh-autoenv"
+zplug "gretzky/auto-color-ls"                   # auto colorful ls
 
 zplug "plugins/git", from:oh-my-zsh
-zplug "plugins/autojump", from:oh-my-zsh
-zplug "plugins/battery", from:oh-my-zsh
+#zplug "plugins/autojump", from:oh-my-zsh
+#zplug "plugins/battery", from:oh-my-zsh
 zplug "plugins/colored-man", from:oh-my-zsh
-zplug "plugins/colorize", from:oh-my-zsh
+#zplug "plugins/colorize", from:oh-my-zsh
 zplug "plugins/cp", from:oh-my-zsh
 zplug "plugins/per-directory-history", from:oh-my-zsh
 zplug "plugins/python", from:oh-my-zsh
 zplug "plugins/sudo", from:oh-my-zsh
-zplug "plugins/systemd", from:oh-my-zsh
+#zplug "plugins/systemd", from:oh-my-zsh
 zplug "plugins/vi-mode", from:oh-my-zsh
-zplug "plugins/virtualenwrapper", from:oh-my-zsh
-#zplug "plugins/z", from:oh-my-zsh
+#zplug "plugins/virtualenwrapper", from:oh-my-zsh
+zplug "plugins/z", from:oh-my-zsh
 #zplug "plugins/command-not-found", from:oh-my-zsh
 # ------------------------------- plugins (end) --------------------------------
 
 
 # ---------------------------- UI themes (start) -------------------------------
-zplug "themes/dst", from:oh-my-zsh
-export KEYTIMEOUT=1
-old_RPS1=${RPS1}
-function zle-line-init zle-keymap-select {
-    VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]% %{$reset_color%}"
-    RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $(git_custom_status) $EPS1"${old_RPS1}
-    #if [[ $(fcitx-remote) -eq 2 ]]; then
-        #fcitx-remote -c
-        #FCITX_TIGGER=true
-    #elif [[ $FCITX_TIGGER ]]; then
-        #fcitx-remote -o
-        #FCITX_TIGGER=false
-    #fi
-    zle reset-prompt
-}
-zle -N zle-line-init
-zle -N zle-keymap-select
+setopt prompt_subst # Make sure prompt is able to be generated properly.
+zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
 # ---------------------------- UI themes (end) ---------------------------------
+
+
+# ------------------------- Plugin Settings (start) ----------------------------
+source /etc/zsh_command_not_found
+
+# zsh cd completion
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+# ------------------------- Plugin Settings (end) ------------------------------
 
 
 # ------------------------- load the plugins (start) ---------------------------
@@ -77,4 +81,6 @@ zsh ~/.bash/fbi_warning.sh
 # some basic stuffs
 export EDITOR=vim
 export GRAPHIC_EDITOR="gvim"
+
+alias zshrc="${EDITOR} ~/.zshrc"
 # -------------------------- load my plugins (end) -----------------------------
