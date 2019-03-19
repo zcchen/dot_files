@@ -1,0 +1,11 @@
+set show-scrollbars true
+map <PageDown> scroll half-down
+map <PageUp> scroll half-up
+
+set scroll-step 200
+set smooth-scroll true
+
+set window-title-basename
+
+set recolor-darkcolor "#C3C7CF"
+set recolor-lightcolor "#070707"
