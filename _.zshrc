@@ -3,6 +3,7 @@
 export LANG="en_US.UTF-8"
 
 source ~/.bash/alias.sh
+alias zplug="LANGUAGE=en_US.UTF-8 zplug"
 
 # -------------------------- Self handle the zplug (start) ---------------------
 # Check if zplug is installed
@@ -12,6 +13,7 @@ if [[ ! -d ~/.zplug ]]; then
 fi
 # Essential
 source ~/.zplug/init.zsh
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 # -------------------------- Self handle the zplug (end) -----------------------
 
 
