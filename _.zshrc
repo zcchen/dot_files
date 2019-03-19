@@ -2,6 +2,8 @@
 
 export LANG="en_US.UTF-8"
 
+source ~/.bash/alias.sh
+
 # -------------------------- Self handle the zplug (start) ---------------------
 # Check if zplug is installed
 if [[ ! -d ~/.zplug ]]; then
@@ -23,22 +25,24 @@ zplug "b4b4r07/enhancd"                         # "cd" command enhance
 zplug "supercrabtree/k"; alias k="k -h"         # Directory listings for zsh with git features
 zplug "chrissicool/zsh-256color"
 zplug "Tarrasch/zsh-autoenv"
-zplug "gretzky/auto-color-ls"                   # auto colorful ls
+zplug "desyncr/auto-ls"                         # auto list
+zplug "libs/history", from:oh-my-zsh
+#zplug "jimhester/per-directory-history"
 
 zplug "plugins/git", from:oh-my-zsh
-#zplug "plugins/autojump", from:oh-my-zsh
+zplug "plugins/autojump", from:oh-my-zsh
+zplug "plugins/autopep8", from:oh-my-zsh
 #zplug "plugins/battery", from:oh-my-zsh
 zplug "plugins/colored-man", from:oh-my-zsh
 #zplug "plugins/colorize", from:oh-my-zsh
+zplug "plugins/command-not-found", from:oh-my-zsh
 zplug "plugins/cp", from:oh-my-zsh
-zplug "plugins/per-directory-history", from:oh-my-zsh
 zplug "plugins/python", from:oh-my-zsh
 zplug "plugins/sudo", from:oh-my-zsh
-#zplug "plugins/systemd", from:oh-my-zsh
+zplug "plugins/systemd", from:oh-my-zsh
 zplug "plugins/vi-mode", from:oh-my-zsh
 #zplug "plugins/virtualenwrapper", from:oh-my-zsh
 zplug "plugins/z", from:oh-my-zsh
-#zplug "plugins/command-not-found", from:oh-my-zsh
 # ------------------------------- plugins (end) --------------------------------
 
 
@@ -73,8 +77,6 @@ zplug load
 
 
 # -------------------------- load my plugins (start) ---------------------------
-source ~/.bash/alias.sh
-
 # For fun
 zsh ~/.bash/fbi_warning.sh
 
@@ -82,5 +84,8 @@ zsh ~/.bash/fbi_warning.sh
 export EDITOR=vim
 export GRAPHIC_EDITOR="gvim"
 
+#mkdir -p ~/.directory_history/
+
 alias zshrc="${EDITOR} ~/.zshrc"
+eval $(thefuck --alias)
 # -------------------------- load my plugins (end) -----------------------------
