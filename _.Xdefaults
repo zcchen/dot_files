@@ -1,0 +1,28 @@
+! xTerm                     {{{
+    xterm*termName: xterm-256color
+    xterm*utf8: True
+    xterm*locale: True
+    xterm*utf8Title: True
+    xterm*renderFont: True
+    xterm*scaleHeight: 1.1
+    xterm*preeditType: Root
+    xterm*xftAntialias: True
+    xterm*faceName: DejaVu Sans Mono:pixelsize=14
+    xterm*faceNameDoublesize: WenQuanYi Zen Hei Mono:pixelsize=14
+    xterm*customization: -color
+    xterm*scrollbar: yes
+    xterm*background: black
+    xterm*foreground: grey
+
+    ! fix alt-key inputting
+    xterm*eightBitInput: false
+    xterm*metaSendsEscape: True
+    xterm*inputMethod: fcitx
+
+    ! copy and paste with clipboard
+    xterm*translations: #override \
+            Ctrl Shift <KeyPress> C: copy-selection(CLIPBOARD) \n\
+            Ctrl Shift <KeyPress> V: insert-selection(CLIPBOARD)
+!                           }}}
+
+! vim: sw=4 smarttab
