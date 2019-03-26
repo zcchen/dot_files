@@ -98,7 +98,7 @@ otherLink() {
 
 update_submodule() {
     #cd $(dirname $0)/_.vimperator/plugins
-    #git pull
+    git pull
 }
 
 
