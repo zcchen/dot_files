@@ -5,6 +5,11 @@ export LANG="en_US.UTF-8"
 source ~/.bash/alias.sh
 alias zplug="LANGUAGE=en_US.UTF-8 zplug"
 
+MY_SHELL_PATH="${HOME}/.bash"
+if [[ -z $(echo ${PATH} | grep ${MY_SHELL_PATH}) ]]; then
+    export PATH="${MY_SHELL_PATH}:$PATH"
+fi
+
 # -------------------------- Self handle the zplug (start) ---------------------
 # Check if zplug is installed
 if [[ ! -d ~/.zplug ]]; then
