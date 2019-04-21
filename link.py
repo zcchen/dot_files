@@ -7,7 +7,8 @@ import os, re
 special_files_targets = {
         # The key is the config file names, with
         # The value is the config file targets.
-        "_.zathurarc":  "~/.config/zathura/zathurarc"
+        "_.zathurarc":  "~/.config/zathura/zathurarc",
+        "_.autostart":  "~/.config/autostart",
     }
 
 ln_cmd = "ln -snf"
