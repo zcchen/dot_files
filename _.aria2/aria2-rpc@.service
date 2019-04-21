@@ -1,0 +1,14 @@
+[Unit]
+Description=aria2 rpc daemon for user %i
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=%i
+ExecStart=/usr/bin/aria2c --conf-path "%h/.aria2/rpc_aria2.conf"
+
+[Install]
+Alias=multi-user.target.wants/aria2-rpc@%i.service
