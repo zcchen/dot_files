@@ -3,6 +3,12 @@
 export LANG="en_US.UTF-8"
 
 source ~/.bash/alias.sh
+alias zplug="LANGUAGE=en_US.UTF-8 zplug"
+
+MY_SHELL_PATH="${HOME}/.bash"
+if [[ -z $(echo ${PATH} | grep ${MY_SHELL_PATH}) ]]; then
+    export PATH="${MY_SHELL_PATH}:$PATH"
+fi
 
 # -------------------------- Self handle the zplug (start) ---------------------
 # Check if zplug is installed
@@ -12,6 +18,7 @@ if [[ ! -d ~/.zplug ]]; then
 fi
 # Essential
 source ~/.zplug/init.zsh
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 # -------------------------- Self handle the zplug (end) -----------------------
 
 
@@ -48,7 +55,10 @@ zplug "plugins/z", from:oh-my-zsh
 
 # ---------------------------- UI themes (start) -------------------------------
 setopt prompt_subst # Make sure prompt is able to be generated properly.
-zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
+#zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
+zplug "caiogondim/bullet-train.zsh", use:bullet-train.zsh-theme, defer:3 # defer until other plugins like oh-my-zsh is loaded
+BULLETTRAIN_PROMPT_ORDER=( time context dir git)
+BULLETTRAIN_STATUS_EXIT_SHOW=true
 # ---------------------------- UI themes (end) ---------------------------------
 
 

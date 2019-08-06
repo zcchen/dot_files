@@ -40,3 +40,9 @@ export PULSE_LATENCY_MSEC=60
 
 # source all alias setting
 source ~/.bash/alias.sh
+
+MY_SHELL_PATH="${HOME}/.bash"
+if [[ -z $(echo ${PATH} | grep ${MY_SHELL_PATH}) ]]; then
+    export PATH="${MY_SHELL_PATH}:$PATH"
+fi
+
