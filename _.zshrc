@@ -55,10 +55,10 @@ zplug "plugins/z", from:oh-my-zsh
 
 # ---------------------------- UI themes (start) -------------------------------
 setopt prompt_subst # Make sure prompt is able to be generated properly.
-#zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
-zplug "caiogondim/bullet-train.zsh", use:bullet-train.zsh-theme, defer:3 # defer until other plugins like oh-my-zsh is loaded
-BULLETTRAIN_PROMPT_ORDER=( time context dir git)
-BULLETTRAIN_STATUS_EXIT_SHOW=true
+zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
+#zplug "caiogondim/bullet-train.zsh", use:bullet-train.zsh-theme, defer:3 # defer until other plugins like oh-my-zsh is loaded
+#BULLETTRAIN_PROMPT_ORDER=( time context dir git)
+#BULLETTRAIN_STATUS_EXIT_SHOW=true
 # ---------------------------- UI themes (end) ---------------------------------
 
 
