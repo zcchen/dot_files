@@ -11,7 +11,7 @@ export HISTSIZE=65535
 PS1='\[\033[01;32m\]\t \u \[\033[01;34m\]\w\$\[\033[00m\] '
 #PS1='`a=$?;if [ $a -ne 0 ]; then a="  "$a; echo -ne "\[\e[s\e[1A\e[$((COLUMNS-2))G\e[31m\e[1;41m${a:(-3)}\e[u\]\[\e[0m\e[7m\e[2m\]"; fi`\[\e[1;32m\]\u@\h:\[\e[0m\e[1;34m\]\W\[\e[1;34m\]\$ \[\e[0m\]'
 
-source ~/.profile
+#source ~/.profile
 #export USE_CCACHE=1
 #python Docs
 export PYTHONDOCS=/usr/share/doc/python2/html/
