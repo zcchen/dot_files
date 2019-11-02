@@ -33,8 +33,12 @@ zplug "supercrabtree/k"; alias k="k -h"         # Directory listings for zsh wit
 zplug "chrissicool/zsh-256color"
 zplug "Tarrasch/zsh-autoenv"
 zplug "desyncr/auto-ls"                         # auto list
-zplug "libs/history", from:oh-my-zsh
-#zplug "jimhester/per-directory-history"
+#zplug "plugins/history",   from:oh-my-zsh,  defer:3
+zplug "jimhester/per-directory-history"
+if zplug check "jimhester/per-directory-history"; then
+    HISTORY_BASE="${HOME}/.zsh_histories"
+    SAVEHIST=65535
+fi
 
 zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/autojump", from:oh-my-zsh
@@ -93,7 +97,6 @@ zsh ~/.bash/fbi_warning.sh
 export EDITOR=vim
 export GRAPHIC_EDITOR="gvim"
 
-#mkdir -p ~/.directory_history/
 
 alias zshrc="${EDITOR} ~/.zshrc"
 eval $(thefuck --alias)
