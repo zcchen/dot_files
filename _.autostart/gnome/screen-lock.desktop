@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name[zh_CN]=GNOME 锁屏
+Name=lock session for GNOME
+Comment=Auto Lock session after first login
+Exec=gnome-screensaver-command -l
+Icon=system-run
+Terminal=false
+#StartupNotify=true
+Type=Application
+Categories=System;
+
