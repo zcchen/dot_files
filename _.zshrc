@@ -7,7 +7,7 @@ alias zplug="LANGUAGE=en_US.UTF-8 zplug"
 
 MY_SHELL_PATH="${HOME}/.bash"
 if [[ -z $(echo ${PATH} | grep ${MY_SHELL_PATH}) ]]; then
-    export PATH="${MY_SHELL_PATH}:$PATH"
+    export PATH="${MY_SHELL_PATH}:$PATH:${HOME}/.local/bin"
 fi
 
 # -------------------------- Self handle the zplug (start) ---------------------
