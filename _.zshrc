@@ -94,7 +94,11 @@ zplug load
 
 # -------------------------- load my plugins (start) ---------------------------
 # For fun
-zsh ~/.bash/fbi_warning.sh
+source ${HOME}/.bash/fbi_warning.sh
+
+for f in $(find ${HOME}/.zsh/plugins -iname "*.zsh" -type f); do
+    source $f
+done
 
 # some basic stuffs
 export EDITOR=vim
