@@ -5,9 +5,9 @@ export LANG="en_US.UTF-8"
 source ~/.bash/alias.sh
 alias zplug="LANGUAGE=en_US.UTF-8 zplug"
 
-MY_SHELL_PATH="${HOME}/.bash"
-if [[ -z $(echo ${PATH} | grep ${MY_SHELL_PATH}) ]]; then
-    export PATH="${MY_SHELL_PATH}:$PATH:${HOME}/.local/bin"
+MY_SHELL_PATH="${HOME}/.bash:${HOME}/.local/bin"
+if [[ -z "$(echo ${PATH} | grep ${MY_SHELL_PATH})" ]]; then
+    export PATH="${MY_SHELL_PATH}:$PATH"
 fi
 
 # -------------------------- Self handle the zplug (start) ---------------------
@@ -64,6 +64,8 @@ zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
 if zplug check "caiogondim/bullet-train.zsh"; then
     BULLETTRAIN_STATUS_EXIT_SHOW=true
     BULLETTRAIN_PROMPT_ORDER=( time context dir git)
+    SPACESHIP_GIT_PREFIX="($(git config --get user.name))"
+    SPACESHIP_GIT_BRANCH_PREFIX=" "
 fi
 # ---------------------------- UI themes (end) ---------------------------------
 
