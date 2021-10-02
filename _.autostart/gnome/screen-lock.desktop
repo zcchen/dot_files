@@ -2,10 +2,13 @@
 Name[zh_CN]=GNOME 锁屏
 Name=lock session for GNOME
 Comment=Auto Lock session after first login
-Exec=gnome-screensaver-command -l
+TryExec=dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock
+Exec=dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock
 Icon=system-run
 Terminal=false
-#StartupNotify=true
 Type=Application
-Categories=System;
-
+Categories=GNOME;GTK;System;Utility;
+StartupNotify=true
+X-GNOME-Autostart-enabled=true
+Hidden=false
+NoDisplay=false

@@ -1,1 +1,11 @@
-gnome/screen-lock.desktop
+[Desktop Entry]
+Name[zh_CN]=锁屏
+Name=lock session
+Comment=Auto Lock session after first login
+Exec=/bin/loginctl lock-session
+Icon=system-run
+Terminal=false
+#StartupNotify=true
+Type=Application
+Categories=System;
+
