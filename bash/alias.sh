@@ -78,4 +78,8 @@ alias picocom="picocom --imap lfcrlf --omap crlf"
 # dd progress
 alias dd="dd status=progress"
 
+# trans alias
+alias trans2cn="trans :zh-CN"
+alias trans2en="trans :en"
+
 # vim: tw=0
