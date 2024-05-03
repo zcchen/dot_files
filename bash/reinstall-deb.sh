@@ -1,6 +1,7 @@
 #!/bin/bash
 # Debian System Reinstaller
 # Copyright (C) 2015 Albert Huang
+#               2023 CHEN, Zhechuan
 # 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -92,20 +93,32 @@ becho " * Reinstalling..."
 
 rm -f reinstall.log
 
-for pkg in $pkgs; do
-	echo -e "\033[1m   * Reinstalling:\033[0m $pkg"
-	echo "***** Reinstalling: $pkg *****" >> reinstall.log
-	printf "      "
-	[ "$stopnow" = "1" ] && exit
-	spinner_loop &
-	spinner_register %%
-	sudo apt-get -q -y --force-yes install --reinstall -o Dpkg::Options::="--force-confmiss" $pkg >> reinstall.log
-	cerr=$?
-	spinner_cancel
-	backstep "      "
-	if [ ! "$cerr" = "0" ]; then
-		echo "ERROR: Reinstallation failed. See reinstall.log for details."
-		exit 1
-	fi
-	[ "$stopnow" = "1" ] && exit
-done
+#echo "pkgs: ${pkgs}"
+echo "Prepare to Re-installing packages..."
+echo "Check reinstall.log file for more details."
+sudo apt-get install --reinstall -o Dpkg::Options::="--force-confmiss" ${pkgs} | tee -a reinstall.log
+cerr=$?
+if [ ! "$cerr" = "0" ]; then
+    echo "ERROR: Reinstallation failed. See reinstall.log for details."
+    exit 1
+else
+    echo "Re-installation is done. See reinstall.log for details."
+fi
+
+#for pkg in $pkgs; do
+	#echo -e "\033[1m   * Reinstalling:\033[0m $pkg"
+	#echo "***** Reinstalling: $pkg *****" >> reinstall.log
+	#printf "      "
+	#[ "$stopnow" = "1" ] && exit
+	#spinner_loop &
+	#spinner_register %%
+	#sudo apt-get -q -y --force-yes install --reinstall -o Dpkg::Options::="--force-confmiss" $pkg >> reinstall.log
+	#cerr=$?
+	#spinner_cancel
+	#backstep "      "
+	#if [ ! "$cerr" = "0" ]; then
+		#echo "ERROR: Reinstallation failed. See reinstall.log for details."
+		#exit 1
+	#fi
+	#[ "$stopnow" = "1" ] && exit
+#done
