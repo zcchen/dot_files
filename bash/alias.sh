@@ -9,7 +9,7 @@ alias rm='rm -Iv'
 alias mv='mv -iv'
 alias cp='cp -v'
 
-alias v='vim'
+alias v='nvim'
 alias vimrc='vim ~/.vimrc'
 alias ctags='ctags --c++-kinds=+p --fields=+iaS --extra=+q'
 
@@ -79,7 +79,7 @@ alias picocom="picocom --imap lfcrlf --omap crlf"
 alias dd="dd status=progress"
 
 # trans alias
-alias trans2cn="trans :zh-CN"
-alias trans2en="trans :en"
+alias trans2cn="proxychains -q trans :zh-CN"
+alias trans2en="proxychains -q trans :en"
 
 # vim: tw=0
