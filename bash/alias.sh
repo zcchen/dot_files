@@ -49,8 +49,8 @@ alias vtodo="vim ~/Documents/Dropbox/todo/todo.txt"
 #alias wine='xhost +local: && sudo -u skype /usr/bin/wine'
 
 alias clockUpdate='sudo systemctl stop ntpd && sudo ntpd -qg && sudo hwclock -uw && sudo systemctl start ntpd'
-alias pwdcp="pwd | xsel -ib"
-alias cdpwd="cd $(xsel -ob)"
+alias pwdcp="pwd | xclip -i"
+alias cdpwd="cd $(xclip -o)"
 alias my_create_ap="sudo systemctl stop dnscrypt-proxy && sudo ~/.myPasswd/my_create_ap.sh"
 
 # Game Simutrans
