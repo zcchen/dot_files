@@ -48,7 +48,14 @@ zplug "plugins/z", from:oh-my-zsh
 
 # ---------------------------- UI themes (start) -------------------------------
 setopt prompt_subst # Make sure prompt is able to be generated properly.
-zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
+zplug "romkatv/powerlevel10k", as:theme, depth:1
+# zplug "jeffreytse/zsh-vi-mode", use:zsh-vi-mode.zsh from:github, as:theme
+# zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
+# zplug "spaceship-prompt/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
+# zplug "spaceship-prompt/spaceship-vi-mode", from:github   #use:spaceship-vi-mode.plugin.zsh, from:github
+# if zplug check "spaceship-prompt/spaceship-prompt"; then
+#     # export SPACESHIP_CONFIG="/home/zcchen/.zsh/plugins/spaceship-prompt-config.zsh"
+# fi
 #zplug "caiogondim/bullet-train.zsh", use:bullet-train.zsh-theme, defer:3 # defer until other plugins like oh-my-zsh is loaded
 if zplug check "caiogondim/bullet-train.zsh"; then
     BULLETTRAIN_STATUS_EXIT_SHOW=true
@@ -73,10 +80,16 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
     if read -q; then
+        export https_proxy=http:///127.0.0.1:8228
         echo; zplug install
+        export https_proxy=
     else
         echo
     fi
 fi
 zplug load
 # ------------------------- load the plugins (end) -----------------------------
+
+if zplug check "romkatv/powerlevel10k"; then
+    source ~/.zsh/conf/p10k-config.zsh
+fi
