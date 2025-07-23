@@ -17,7 +17,7 @@
     ! fix alt-key inputting
     xterm*eightBitInput: false
     xterm*metaSendsEscape: True
-    xterm*inputMethod: fcitx
+    xterm*inputMethod: fcitx5
 
     ! copy and paste with clipboard
     xterm*translations: #override \

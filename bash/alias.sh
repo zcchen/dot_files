@@ -11,27 +11,13 @@ alias cp='cp -v'
 
 alias v='nvim'
 alias vimrc='vim ~/.vimrc'
+alias nvimrc='nvim ~/.config/nvim/init.lua'
+alias vidff="nvim -d"
 alias ctags='ctags --c++-kinds=+p --fields=+iaS --extra=+q'
 
 #alias wine="env LANG=en_US.UTF-8 wine"
 alias xterm='xterm -class 256color'
 alias w3m='w3m -cookie -graph -F -num'
-
-# pacman command setting
-#alias pacman='sudo pacman'
-function pacman() {
-    if [[ $1 == '-Syu' ]]; then
-        command sudo paccache -r -k 1
-        command sudo pkgfile -u -v -z
-        command sudo pacman "$@"
-    else
-        command sudo pacman "$@"
-    fi
-}
-function pacaur() {
-    mkdir -p /tmp/makepkg/{pkg,src}
-    command pacaur "$@"
-}
 
 #set bash work like vi.
 #set -o vi
@@ -50,7 +36,7 @@ alias vtodo="vim ~/Documents/Dropbox/todo/todo.txt"
 
 alias clockUpdate='sudo systemctl stop ntpd && sudo ntpd -qg && sudo hwclock -uw && sudo systemctl start ntpd'
 alias pwdcp="pwd | xclip -i"
-alias cdpwd="cd $(xclip -o)"
+alias cdpwd='cd $(xclip -o)'
 alias my_create_ap="sudo systemctl stop dnscrypt-proxy && sudo ~/.myPasswd/my_create_ap.sh"
 
 # Game Simutrans

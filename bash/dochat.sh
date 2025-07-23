@@ -15,9 +15,9 @@ docker run \
   \
   -e DISPLAY \
   \
-  -e XMODIFIERS=@im=fcitx \
-  -e GTK_IM_MODULE=fcitx \
-  -e QT_IM_MODULE=fcitx \
+  -e XMODIFIERS=@im=fcitx5 \
+  -e GTK_IM_MODULE=fcitx5 \
+  -e QT_IM_MODULE=fcitx5 \
   -e GID="$(id -g)" \
   -e UID="$(id -u)" \
   \

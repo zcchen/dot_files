@@ -1,6 +1,7 @@
 HOME_SRCS   = bash bashrc zsh zshrc
 HOME_SRCS  += Xdefaults xinitrc xprofile
 HOME_SRCS  += latexmkrc rtorrent.rc
+HOME_SRCS  += profile.d
 
 CONFIG_SRCS = $(wildcard config/*)
 
