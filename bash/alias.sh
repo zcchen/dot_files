@@ -68,4 +68,9 @@ alias dd="dd status=progress"
 alias trans2cn="proxychains -q trans :zh-CN"
 alias trans2en="proxychains -q trans :en"
 
+# C# decompiler
+function ilspycmd() {
+    set -x
+    docker run -v .:$(pwd) -w $(pwd) --rm -it berdav/ilspycmd -c "/home/ilspy/.dotnet/tools/ilspycmd $*"
+}
 # vim: tw=0
