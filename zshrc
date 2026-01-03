@@ -22,8 +22,9 @@ for f in $(find ${HOME}/.zsh/plugins -iname "*.zsh" -type f); do
 done
 
 # some basic stuffs
-export EDITOR=vim
-export GRAPHIC_EDITOR="gvim"
+export EDITOR=nvim
+export GRAPHIC_EDITOR=gvim
+# export GRAPHIC_EDITOR=konsole -e /usr/bin/zsh -c nvim
 
 
 alias zshrc="${EDITOR} ~/.zshrc"
