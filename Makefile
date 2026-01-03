@@ -3,11 +3,11 @@ HOME_SRCS  += Xdefaults xinitrc xprofile
 HOME_SRCS  += latexmkrc rtorrent.rc
 HOME_SRCS  += profile.d
 
-CONFIG_SRCS = $(wildcard config/*)
+CONF_SRCS   = $(wildcard config/*)
 
 HOME_DIR    = $${HOME}
 HOME_OBJS   = $(foreach s,$(HOME_SRCS),$(HOME_DIR)/.$(s))
-CONFIG_OBJS = $(foreach s,$(CONFIG_SRCS),$(HOME_DIR)/.$(s))
+CONF_OBJS   = $(foreach s,$(CONF_SRCS),$(HOME_DIR)/.$(s))
 
 REMOVE_CMD  = rm -irf
 LINK_CMD    = ln -snf
@@ -24,9 +24,9 @@ help:
 	@echo "       update: Update 3rd-party plugins."
 
 clean:
-	$(REMOVE_CMD) $(HOME_OBJS) $(CONFIG_OBJS)
+	$(REMOVE_CMD) $(HOME_OBJS) $(CONF_OBJS)
 
-install: $(HOME_OBJS) $(CONFIG_OBJS)
+install: $(HOME_OBJS) $(CONF_OBJS)
 	@echo "tbd"
 
 update:
